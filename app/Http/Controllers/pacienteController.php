@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\paciente;
+use App\Models\User;
 
 class pacienteController extends Controller
 {
@@ -11,9 +13,14 @@ class pacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        //
+        return view('paciente.index');
     }
 
     /**
@@ -23,7 +30,7 @@ class pacienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('paciente.create');
     }
 
     /**
@@ -34,7 +41,35 @@ class pacienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+            [
+                'medic_id' => 'required|max:15',
+                'nombres' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
+                'apellidos' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
+                'telefono' => 'required|max:15',
+                'mensajeria' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
+                'edad' => 'required|max:3'
+            ]
+        );
+
+        $medicid = $request->input('medic_id');
+        $nom1 = $request->input('nombres');
+        $apel1 = $request->input('apellidos');
+        $tel = $request->input('telefono');
+        $mensaje = $request->input('mensajeria');
+        $edad = $request->input('edad'); 
+
+        paciente::create([
+            'user_id' => $medicid,
+            'nombres' => $nom1,
+            'apellidos' => $apel1,
+            'telefono' => $tel,
+            'mensajeria'=> $mensaje,
+            'edad' => $edad
+        ]);
+
+        return redirect()->route('pacientes.create')->with('success', 'Data was inserted');
+        //return view('paciente.index')->with('success', 'Data was inserted');;
     }
 
     /**
@@ -45,7 +80,11 @@ class pacienteController extends Controller
      */
     public function show($id)
     {
-        //
+        $paci = paciente::find($id);
+        $paci2 = \App\Models\User::with(['pacientes'])->first();
+        return view('paciente.show', compact('paci', 'paci2'));
+
+        
     }
 
     /**
@@ -56,7 +95,8 @@ class pacienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $Edita = paciente::findOrFail($id);
+        return view('paciente.edit',compact('Edita'));
     }
 
     /**
@@ -68,7 +108,36 @@ class pacienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $paci = paciente::find($id);
+
+        $request->validate(
+            [
+                'medic_id' => 'required|max:15',
+                'nombres' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
+                'apellidos' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
+                'telefono' => 'required|max:15',
+                'mensajeria' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
+                'edad' => 'required|max:3'
+            ]
+        );
+
+        $medicid = $request->input('medic_id');
+        $nom1 = $request->input('nombres');
+        $apel1 = $request->input('apellidos');
+        $tel = $request->input('telefono');
+        $mensaje = $request->input('mensajeria');
+        $edad = $request->input('edad'); 
+
+        $paci -> update([
+            'user_id' => $medicid,
+            'nombres' => $nom1,
+            'apellidos' => $apel1,
+            'telefono' => $tel,
+            'mensajeria'=> $mensaje,
+            'edad' => $edad
+        ]);
+
+        return redirect()->route('pacientes.edit', $paci->id)->with('success', 'Data was inserted');
     }
 
     /**

@@ -16,8 +16,8 @@ class CreatePacientesTable extends Migration
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('medico_id')->unsigned();
-            $table->foreign('medico_id')->references('id')->on('users');
+            $table->bigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users');
 
             $table->String('nombres');
             $table->String('apellidos');

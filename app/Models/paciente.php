@@ -8,11 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class paciente extends Model
 {
     protected $fillable = [
-        'medico_id',
+        'user_id',
         'nombres',
         'apellidos',
         'telefono',
         'mensajeria',
         'edad'
     ];
+
+    public function User(){
+    	return $this->belongsTo('App\Models\User');
+    }
+    
 }

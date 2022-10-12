@@ -11,10 +11,61 @@
 
     <!-- Scripts -->
 
+    <script language="JavaScript">
+        function doSearch(){
+            const tableReg = document.getElementById('datos');
+            const searchText = document.getElementById('searchTerm').value.toLowerCase();
+            let total = 0;
+            
+            for (let i = 1; i < tableReg.rows.length; i++) {
+           
+                if (tableReg.rows[i].classList.contains("noSearch")) {continue;}
+                    
+                    let found = false;
+                    const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+                   
+                    for (let j = 0; j < cellsOfRow.length && !found; j++) {
+                    const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+            
+                    if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+                        found = true;
+                        total++;
+                    }
+                }
+        
+                if (found) {
+                    tableReg.rows[i].style.display = '';
+                } else {
+                    tableReg.rows[i].style.display = 'none';
+                }
+                }
+                // mostramos las coincidencias
+            const lastTR=tableReg.rows[tableReg.rows.length-1];
+            const td=lastTR.querySelector("td");
+            lastTR.classList.remove("hide", "red");
+            if (searchText == "") {
+                lastTR.classList.add("hide");
+            } else if (total) {
+                td.innerHTML="Se ha encontrado "+total+" coincidencia"+((total>1)?"s":"");
+            } else {
+                lastTR.classList.add("red");
+                td.innerHTML="No se han encontrado coincidencias";
+            }
+        }
+    
+    </script>
+
     <!-- Bootstrap scripts-->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
-   
+    <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        var popoverList = popoverTriggerList.map(function(element){
+            return new bootstrap.Popover(element);
+        });
+    });
+    </script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

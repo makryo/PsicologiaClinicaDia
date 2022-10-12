@@ -16,6 +16,8 @@ return [
     */
 
     'default' => env('DB_CONNECTION', 'mysql'),
+    'charset' => 'utf8', 
+    'collation' => 'utf8_general_ci',
 
     /*
     |--------------------------------------------------------------------------
@@ -46,11 +48,11 @@ return [
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DATABASE_URL'),
-            'host' => env('DB_HOST', '35.246.120.82'),
+            'host' => env('DB_HOST', 'sql8.freemysqlhosting.net'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('ClinicaDia', 'ClinicaDia'),
-            'username' => env('tom', 'tom'),
-            'password' => env('Halcon19@', 'Halcon19@'),
+            'database' => env('sql8525180', 'sql8525180'),
+            'username' => env('sql8525180', 'sql8525180'),
+            'password' => env('8iIHYAlq8p', '8iIHYAlq8p'),
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
