@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pacienteController;
+use App\Http\Controllers\CitasController;
+use App\Http\Controllers\EntrevistaController;
+use App\Http\Controllers\RecetaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +27,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('/pacientes', pacienteController::class);
-
-
+Route::resource('/citas', CitasController::class);
+Route::resource('/entrevistas', EntrevistaController::class);
+Route::resoucer('/recetas', RecetaController::class);
