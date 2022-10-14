@@ -31,4 +31,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/pacientes', pacienteController::class);
 Route::resource('/citas', CitasController::class);
 Route::resource('/entrevistas', EntrevistaController::class);
-Route::resoucer('/recetas', RecetaController::class);
+Route::resource('/recetas', RecetaController::class);
