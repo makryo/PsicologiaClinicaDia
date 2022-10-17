@@ -45,4 +45,8 @@ class User extends Authenticatable
     public function pacientes(){
     	return $this->hasMany('App\Models\paciente');
     }
+
+    public function citas(){
+    	return $this->hasMany('App\Models\citas');
+    }
 }

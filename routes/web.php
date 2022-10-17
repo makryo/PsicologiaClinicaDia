@@ -22,7 +22,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('/','Controller');
+//Route::resource('/','Controller');
 
 Auth::routes();
 

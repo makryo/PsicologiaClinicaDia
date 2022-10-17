@@ -23,7 +23,7 @@ class CreateCitasTable extends Migration
             $table->foreign('user_id')->references('id')->on('users');
 
             $table->date('fecha_cita');
-            $table->date("h,i"('hora_cita'));
+            $table->String('hora_cita');
             $table->timestamps();
         });
     }
