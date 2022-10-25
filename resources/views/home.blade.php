@@ -30,22 +30,14 @@ and citas.user_id = users.id order by citas.id');
                     <a class="nav-link" data-bs-toggle="tab" href="#menu2">Entrevistas</a>    
                 </li>
 
-                    
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#menu3">Medicamentos</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#menu3">Recetas</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#menu4">Recetas</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#menu4">Historial</a>
                 </li>
 
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#menu5">Historial</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#menu6">Reportes</a>
-                </li>
             </ul>
 
             <!-- Tab panes -->
@@ -124,6 +116,7 @@ and citas.user_id = users.id order by citas.id');
                                 <td>{{$Lista->hora_cita}}</td>
                                 <td>
                                     <a href="{{ route('citas.show', $Lista->id) }}" class="btn btn-success">Detalles</a>
+                                    <a href="{{ route('generarPdf', $Lista->id) }}" class="btn btn-primary">Generar Comprobante</a>
                                     <br>
                                     <br>
                                 </td>
@@ -180,50 +173,9 @@ and citas.user_id = users.id order by citas.id');
                     </table>
                 </div>
 
+                
+
                 <div id="menu3" class="container tab-pane fade"><br>
-                    <h3>Medicamentos</h3>
-                    <a href="{{route('pacientes.create')}}" class="btn btn-primary">Nuevo Paciente</a>
-                    <br>
-                    <br>
-                    <input type="text" id="searchTerm" onkeyup="doSearch()" class="form-control">
-                    <br>
-                    <br>
-                    <table class="table" id="datos">
-                        <thead>
-                            <tr>                     
-                                <th scope="col">ID</th>
-                                <th scope="col">Nombres</th>
-                                <th scope="col">Apellidos</th>
-                                <th scope="col">Telefono</th>
-                                <th scope="col">Fecha y hora</th>
-                                <th scope="col">Detalles</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach($datos as $Lista)
-                            <tr>
-                                <td>{{$Lista->id}}</td>
-                                <td>{{$Lista->nombres}}</td>
-                                <td>{{$Lista->apellidos}}</td>
-                                <td>{{$Lista->telefono}}</td>
-                                <td>{{$Lista->created_at}}</td>
-                                <td>
-                                    <a href="{{ route('pacientes.show', $Lista->id) }}" class="btn btn-success">Detalles</a>
-                                    <br>
-                                    <br>
-                                </td>
-                            </tr>
-                            @endforeach
-                            <tr class='noSearch hide'>
-                                <td colspan="5"></td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
-
-                <div id="menu4" class="container tab-pane fade"><br>
                     <h3>Recetas</h3>
                     <a href="{{route('pacientes.create')}}" class="btn btn-primary">Nuevo Paciente</a>
                     <br>
@@ -266,7 +218,7 @@ and citas.user_id = users.id order by citas.id');
                     </table>
                 </div>
 
-                <div id="menu5" class="container tab-pane fade"><br>
+                <div id="menu4" class="container tab-pane fade"><br>
                     <h3>Historial</h3>
                     <a href="{{route('pacientes.create')}}" class="btn btn-primary">Nuevo Paciente</a>
                     <br>
@@ -309,48 +261,7 @@ and citas.user_id = users.id order by citas.id');
                     </table>
                 </div>
 
-                <div id="menu6" class="container tab-pane fade"><br>
-                    <h3>Reportes</h3>
-                    <a href="{{route('pacientes.create')}}" class="btn btn-primary">Nuevo Paciente</a>
-                    <br>
-                    <br>
-                    <input type="text" id="searchTerm" onkeyup="doSearch()" class="form-control">
-                    <br>
-                    <br>
-                    <table class="table" id="datos">
-                        <thead>
-                            <tr>                     
-                                <th scope="col">ID</th>
-                                <th scope="col">Nombres</th>
-                                <th scope="col">Apellidos</th>
-                                <th scope="col">Telefono</th>
-                                <th scope="col">Fecha y hora</th>
-                                <th scope="col">Detalles</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            @foreach($datos as $Lista)
-                            <tr>
-                                <td>{{$Lista->id}}</td>
-                                <td>{{$Lista->nombres}}</td>
-                                <td>{{$Lista->apellidos}}</td>
-                                <td>{{$Lista->telefono}}</td>
-                                <td>{{$Lista->created_at}}</td>
-                                <td>
-                                    <a href="{{ route('pacientes.show', $Lista->id) }}" class="btn btn-success">Detalles</a>
-                                    <br>
-                                    <br>
-                                </td>
-                            </tr>
-                            @endforeach
-                            <tr class='noSearch hide'>
-                                <td colspan="5"></td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
+                
             </div>
             </div>
         </div>
