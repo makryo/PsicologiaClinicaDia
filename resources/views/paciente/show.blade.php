@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <h1>Detalles del cliente</h1>
+                    <h1>Detalles del paciente: {{ $paci->nombres }}</h1>
                     
                     <dl>
                     <div class="row">

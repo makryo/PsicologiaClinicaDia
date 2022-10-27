@@ -53,7 +53,7 @@ class CitasController extends Controller
         );
 
         $paci = $request->input('paciente_id');
-        $medicid = $request->input('user_id');       
+        $medicid = $request->input('user_id');
         $fechci = $request->input('fecha_cita');
         $horaci = $request->input('hora_cita');
 
@@ -91,7 +91,7 @@ class CitasController extends Controller
     public function edit($id)
     {
         $Edita = citas::findOrFail($id);
-        return view('citas.edit',compact('Edita'));
+        return view('citas.edit', compact('Edita'));
     }
 
     /**
@@ -108,25 +108,25 @@ class CitasController extends Controller
         $request->validate(
             [
                 'paciente_id' => 'required|max:15',
-                'user_id' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
+                'user_id' => 'required|max:15',
                 'fecha_cita' => 'required',
                 'hora_cita' => 'required'
             ]
         );
 
         $paci = $request->input('paciente_id');
-        $medicid = $request->input('user_id');       
+        $medicid = $request->input('user_id');
         $fechci = $request->input('fecha_cita');
         $horaci = $request->input('hora_cita');
 
-        $citasa -> update([
+        $citasa->update([
             'paciente_id' => $paci,
             'user_id' => $medicid,
             'fecha_cita' => $fechci,
             'hora_cita' => $horaci
         ]);
 
-        return redirect()->route('citas.edit', $citasa->id)->with('Hecho', 'Datos actualizados');
+        return redirect()->route('citas.edit', $citasa->id)->with('success', 'Data was inserted');
     }
 
     /**

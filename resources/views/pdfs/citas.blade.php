@@ -226,7 +226,7 @@
         <div><span>TIPO</span>Comprovante de asignacion de cita</div>
         <div><span>NOMBRE</span>Ingrid Cardona</div>
         <div><span>DIRECCIÓN</span>3.ra calle A 6-50 zona 1, Esquipulas ,Chiquimula, Guatemala</div>
-        <div><span>EMAIL</span> <a href="mailto:roland350under@gmail.com">ingriddia@gmail.com</a></div>
+        <div><span>EMAIL</span> <a href="mailto:ingriddia@gmail.com">ingriddia@gmail.com</a></div>
         <div><span>FECHA</span>
             <?php  
                 echo " " . date("d") . "/" . date("m") . "/" . date("Y");
