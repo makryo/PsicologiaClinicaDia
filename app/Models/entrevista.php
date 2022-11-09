@@ -8,4 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class entrevista extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'paciente_id',
+        'user_id',
+        'tiempo_libre',
+        'hace_solo',
+        'no_gusta',
+        'deportes',
+        'programas',
+        'felicidad',
+        'entristece',
+        'enojo',
+        'aspec_vida',
+        'habitos'
+    ];
 }
