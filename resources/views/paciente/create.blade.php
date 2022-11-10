@@ -48,7 +48,7 @@ $usu = User::all();
                                                     </option>
                                                 @endforeach
                                             </select>
-                                            <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="esto es una ayuda?">?</button>
+                                            <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="Seleccione el medico">?</button>
                                         </div>
                                     <br>
                                     <br>
@@ -56,7 +56,7 @@ $usu = User::all();
                                     <label>Nombres</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" name="nombres">
-                                        <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="esto es una ayuda?">?</button>
+                                        <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="Escriba los nombres del paciente">?</button>
                                     </div>
                                         @error('nombres')
                                             <small class="text-warning">No se puede dejar en blanco o los datos son erroneos.</small>
@@ -67,7 +67,7 @@ $usu = User::all();
                                     <label>Apellidos</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" name="apellidos">
-                                        <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="esto es una ayuda?">?</button>
+                                        <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="escriba los apellidos del paciente">?</button>
                                     </div>
                                         @error('apellidos')
                                             <small class="text-warning">No se puede dejar en blanco o los datos son erroneos.</small>
@@ -90,7 +90,7 @@ $usu = User::all();
                                  <label>Telefono</label>
                                     <div class="input-group mb-3">
                                         <input type="number" class="form-control" name="telefono" step="0.01">
-                                        <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="esto es una ayuda?">?</button>
+                                        <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="Coloque numero de telefono del paciente">?</button>
                                     </div>
                                         @error('telefono')
                                             <small class="text-warning">No se puede dejar en blanco o los datos son erroneos.</small>
@@ -103,7 +103,7 @@ $usu = User::all();
                                     <label>Mensajeria</label>
                                     <div class="input-group mb-3">
                                         <input type="text" class="form-control" name="mensajeria" step="0.01">
-                                        <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="esto es una ayuda?">?</button>
+                                        <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="Coloque que red social usa comunmente el paciente">?</button>
                                     </div>
                                         @error('mensajeria')
                                             <small class="text-warning">No se puede dejar en blanco o los datos son erroneos.</small>
@@ -119,7 +119,7 @@ $usu = User::all();
                                         <input type="number" class="form-control" name="edad" step="0.01">
                                          
 
-                                         <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="esto es una ayuda?">?</button>
+                                         <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="Coloque la edad del paciente">?</button>
                                     </div>
                                         @error('edad')
                                             <small class="text-warning">No se puede dejar en blanco o los datos son erroneos.</small>
@@ -136,14 +136,14 @@ $usu = User::all();
                             <a href="/home" type="button" class="btn btn-secondary">Regresar</a>
 
                             
-                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Info</button>
+                            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#myModal">Info</button>
                             
                             <div class="modal fade" id="myModal" role="dialog">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                     <div class="modal-header">
                                         <h5 class="modal-title">Informacion</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
@@ -154,7 +154,7 @@ $usu = User::all();
                                     </div>
                                     <div class="modal-footer">
                                         
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                     </div>
                                     </div>
                                 </div>
