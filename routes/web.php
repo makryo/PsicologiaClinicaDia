@@ -35,3 +35,7 @@ Route::resource('/entrevistas', EntrevistaController::class);
 Route::resource('/recetas', RecetaController::class);
 Route::resource('/notasEvolutivas', NotaEvolutivaController::class);
 Route::get('/generarPdf/{id}', [PDFController::class, 'generarPDF'])->name('generarPdf');
+Route::get('/reportePaciente', [PDFController::class, 'generarPDFPacientes'])->name('reportePaciente');
+Route::get('/reporteEntrevista/{id}', [PDFController::class, 'generarPDFEntrevista'])->name('reporteEntrevista');
+Route::get('/reporteReceta/{id}', [PDFController::class, 'generarPDFReceta'])->name('reporteReceta');
+Route::get('/reporteNotaEvolutiva/{id}', [PDFController::class, 'generarPDFNota'])->name('reporteNotaEvolutiva');

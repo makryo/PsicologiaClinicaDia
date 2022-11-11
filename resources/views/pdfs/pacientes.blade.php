@@ -1,8 +1,15 @@
+<?php
+
+use Illuminate\Support\Facades\DB;
+
+$datos = DB::select('select id, nombres, apellidos, telefono, created_at from pacientes');
+$npacientes = DB::select('select count(*) as total from pacientes');
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Reporte</title>
+    <title>Reporte general de pacientes</title>
 
 
         <style type="text/css">
@@ -221,7 +228,7 @@
       <h1>Clinica Psicologica Dia</h1>
       
       <div id="project">
-        <div><span>TIPO</span>Comprovante de asignacion de cita</div>
+        <div><span>TIPO</span>Reporte general de pacientes</div>
         <div><span>NOMBRE</span>Ingrid Cardona</div>
         <div><span>DIRECCIÓN</span>3.ra calle A 6-50 zona 1, Esquipulas ,Chiquimula, Guatemala</div>
         <div><span>EMAIL</span> <a href="mailto:ingriddia@gmail.com">ingriddia@gmail.com</a></div>
@@ -233,36 +240,52 @@
       </div>
     </header>
     <main>
+    <h1>Reporte general de pacientes</h1>
         <div>
-                    <div class="col-md-12">
-                        <h1>Detalles de la cita</h1>
-                        <div">
-                            <dl>
-                            <div class="row">
-                                <div class="col-6">
-                                    <h2>Nombre del paciente</h2><h3>{{ $cita->paciente->nombres }}</h3>
-                                    <h2>Nombre del medico</h2><h3>{{ $cita->user->name }}</h3>
-                                </div>
+        <table class="table">
+                        <thead>
+                            <tr>                     
+                                
+                                <th scope="col">Nombres</th>
+                                <th scope="col">Apellidos</th>
+                                <th scope="col">Telefono</th>
+                                <th scope="col">Fecha y hora</th>
+                    
+                            </tr>
+                        </thead>
 
-                                <div class="col-6">
-                                    <h2>Fecha asignada</h2><h3>{{ $cita->fecha_cita }}</h3>
-                                    <h2>Hora asignada</h2><h3>{{ $cita->hora_cita }}</h3>
-                                    <h2>Fecha y hora de asignacion</h2><h3>{{ $cita->created_at }}</h3>
-                                </div>
-                            </div>
-                            </dl>
-                        </div>
-                    </div>
+                        <tbody>
+                            @foreach($datos as $Lista)
+                            <tr>
+                                
+                                <td>{{$Lista->nombres}}</td>
+                                <td>{{$Lista->apellidos}}</td>
+                                <td>{{$Lista->telefono}}</td>
+                                <td>{{$Lista->created_at}}</td>
+                                
+                            </tr>
+                            @endforeach
+                            <tr class='noSearch hide'>
+                                <td colspan="5"></td>
+                            </tr>
+                        </tbody>
 
-
+                    </table>
+                    <br>
+                    <div>Numero total de pacientes registrados 
+                        @foreach($npacientes as $Lista)
+                            {{$Lista->total}}
+                        @endforeach
+                    </div>       
         </div>
+        <br>
       <div id="notices">
         <div>NOTA:</div>
-        <div class="notice">EL SIGUIENTE COMPROVANTE SOLO ES PARA USO INFORMATIVO.</div>
+        <div class="notice">EL SIGUIENTE REPORTE SOLO ES PARA USO INFORMATIVO.</div>
       </div>
     </main>
     <footer>
-      Proyecto de Graduacion 2022
+        Proyecto de Graduacion 2022
     </footer>
   </body>
 </html>

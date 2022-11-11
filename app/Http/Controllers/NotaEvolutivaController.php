@@ -46,8 +46,8 @@ class NotaEvolutivaController extends Controller
             [
                 'paciente_id' => 'required|max:15',
                 'user_id' => 'required|max:15',
-                'observacion' => 'required|max:100|regex:/^[\pL\s\-]+$/u'
-
+                'observacion' => 'required|max:1000'
+ 
             ]
         );
         $paci = $request->input('paciente_id');
@@ -106,7 +106,7 @@ class NotaEvolutivaController extends Controller
             [
                 'paciente_id' => 'required|max:15',
                 'user_id' => 'required|max:15',
-                'observacion' => 'required|max:100|regex:/^[\pL\s\-]+$/u'
+                'observacion' => 'required|max:1000' 
             ]
         );
 

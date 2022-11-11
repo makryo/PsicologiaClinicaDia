@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Reporte</title>
+    <title>Reporte de entrevista</title>
 
 
         <style type="text/css">
@@ -106,8 +106,21 @@
             }
 
             table td {
-            padding: 20px;
+            padding: 80px;
             text-align: left;
+            font-size:x-large;
+            }
+
+            dt {
+            
+            text-align: left;
+            font-size:small;
+            }
+
+            dd {
+            
+            text-align: left;
+            font-size:larger
             }
 
             table td.service,
@@ -221,7 +234,7 @@
       <h1>Clinica Psicologica Dia</h1>
       
       <div id="project">
-        <div><span>TIPO</span>Comprovante de asignacion de cita</div>
+        <div><span>TIPO</span>Reporte de entrevista</div>
         <div><span>NOMBRE</span>Ingrid Cardona</div>
         <div><span>DIRECCIÓN</span>3.ra calle A 6-50 zona 1, Esquipulas ,Chiquimula, Guatemala</div>
         <div><span>EMAIL</span> <a href="mailto:ingriddia@gmail.com">ingriddia@gmail.com</a></div>
@@ -232,25 +245,29 @@
         </div>
       </div>
     </header>
+    <h1>Entrevista del paciente {{$entre->paciente->nombres}}</h1>
     <main>
         <div>
-                    <div class="col-md-12">
-                        <h1>Detalles de la cita</h1>
-                        <div">
-                            <dl>
-                            <div class="row">
-                                <div class="col-6">
-                                    <h2>Nombre del paciente</h2><h3>{{ $cita->paciente->nombres }}</h3>
-                                    <h2>Nombre del medico</h2><h3>{{ $cita->user->name }}</h3>
-                                </div>
+        <div class="row">
+                        <div class="col-6">
+                            <dt>Nombre del paciente</dt><dd>{{ $entre->paciente->nombres }}</dd>
+                            <dt>Nombre del medico</dt><dd>{{ $entre->user->name }}</dd>
+                            <dt>¿Qué le gusta hacer en su tiempo libre?</dt><dd>{{ $entre->tiempo_libre }}</dd>
+                            <dt>¿Qué hace cuando está solo?</dt><dd>{{ $entre->hace_solo }}</dd>
+                            <dt>¿Qué no le gusta hacer?</dt><dd>{{ $entre->no_gusta }}</dd>
+                            <dt>¿Qué tipo de deportes le gustan?</dt><dd>{{ $entre->deportes }}</dd>
+                            <dt>¿Qué programas de televisión mira?</dt><dd>{{ $entre->programas }}</dd>
+                        </div>
 
-                                <div class="col-6">
-                                    <h2>Fecha asignada</h2><h3>{{ $cita->fecha_cita }}</h3>
-                                    <h2>Hora asignada</h2><h3>{{ $cita->hora_cita }}</h3>
-                                    <h2>Fecha y hora de asignacion</h2><h3>{{ $cita->created_at }}</h3>
-                                </div>
-                            </div>
-                            </dl>
+                        <div class="col-6">
+                            
+                            <dt>¿Qué lo hace feliz?</dt><dd>{{ $entre->felicidad }}</dd>
+                            <dt>¿Qué lo entristece?</dt><dd>{{ $entre->entristece }}</dd>
+                            <dt>¿Qué lo enoja?</dt><dd>{{ $entre->enojo }}</dd>
+                            
+                            <dt>¿Sobre qué aspectos de la vida pregunta con mayor frecuencia?</dt><dd>{{ $entre->aspec_vida }}</dd>
+                            <dt>¿Qué tan bien se baña, se viste, come, duerme, en la actualidad?</dt><dd>{{ $entre->habitos }}</dd>
+                            <dt>Fecha y hora de registro</dt><dd>{{ $entre->created_at }}</dd>
                         </div>
                     </div>
 
@@ -258,7 +275,7 @@
         </div>
       <div id="notices">
         <div>NOTA:</div>
-        <div class="notice">EL SIGUIENTE COMPROVANTE SOLO ES PARA USO INFORMATIVO.</div>
+        <div class="notice">EL SIGUIENTE REPORTE SOLO ES PARA USO INFORMATIVO.</div>
       </div>
     </main>
     <footer>

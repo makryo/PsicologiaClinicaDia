@@ -13,4 +13,12 @@ class NotaEvolutiva extends Model
         'user_id',
         'observacion'
     ];
+
+    public function User(){
+    	return $this->belongsTo('App\Models\User');
+    }
+
+    public function paciente(){
+    	return $this->belongsTo('App\Models\paciente');
+    }
 }

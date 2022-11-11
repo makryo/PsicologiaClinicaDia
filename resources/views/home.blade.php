@@ -1,12 +1,27 @@
 <?php
+
+use Illuminate\Support\Facades\DB;
+
 $datos = DB::select('select id, nombres, apellidos, telefono, created_at from pacientes');
+
 $datosCitas = DB::select('select citas.id, pacientes.nombres, users.name, fecha_cita, hora_cita from citas, pacientes, users 
 where citas.paciente_id = pacientes.id
 and citas.user_id = users.id order by citas.id');
+
 $datosentre = DB::select('select entrevistas.id, pacientes.nombres, pacientes.apellidos, users.name 
 from pacientes, users, entrevistas
 where entrevistas.user_id = users.id
-and entrevistas.paciente_id = pacientes.id;')
+and entrevistas.paciente_id = pacientes.id;');
+
+$datosreceta = DB::select('select recetas.id, pacientes.nombres, pacientes.apellidos, users.name, medici_one, indica_one, recetas.created_at 
+from pacientes, users, recetas
+where recetas.user_id = users.id
+and recetas.paciente_id = pacientes.id');
+
+$datosnota = DB::select('select nota_evolutivas.id, pacientes.nombres, pacientes.apellidos, nota_evolutivas.created_at 
+from nota_evolutivas, users, pacientes
+where nota_evolutivas.user_id = users.id
+and nota_evolutivas.paciente_id = pacientes.id');
 ?>
 
 @extends('layouts.app')
@@ -39,7 +54,7 @@ and entrevistas.paciente_id = pacientes.id;')
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" data-bs-toggle="tab" href="#menu4">Historial</a>
+                    <a class="nav-link" data-bs-toggle="tab" href="#menu4">Notas Evolutivas</a>
                 </li>
 
             </ul>
@@ -50,6 +65,7 @@ and entrevistas.paciente_id = pacientes.id;')
                 <div id="home" class="container tab-pane active"><br>                    
                     <h3>Pacientes</h3>
                     <a href="{{route('pacientes.create')}}" class="btn btn-primary">Nuevo Paciente</a>
+                    <a href="{{ route('reportePaciente') }}" class="btn btn-primary">Generar Reporte general</a>
                     <br>
                     <br>
                     <input type="text" id="searchTerm" onkeyup="doSearch()" class="form-control">
@@ -162,6 +178,7 @@ and entrevistas.paciente_id = pacientes.id;')
                                 <td>{{$Lista->name}}</td>
                                 <td>
                                     <a href="{{ route('entrevistas.show', $Lista->id) }}" class="btn btn-success">Detalles</a>
+                                    <a href="{{ route('reporteEntrevista', $Lista->id) }}" class="btn btn-primary">Generar reporte</a>
                                     <br>
                                     <br>
                                 </td>
@@ -179,7 +196,7 @@ and entrevistas.paciente_id = pacientes.id;')
 
                 <div id="menu3" class="container tab-pane fade"><br>
                     <h3>Recetas</h3>
-                    <a href="{{route('pacientes.create')}}" class="btn btn-primary">Nuevo Paciente</a>
+                    <a href="{{route('recetas.create')}}" class="btn btn-primary">Nueva Receta</a>
                     <br>
                     <br>
                     <input type="text" id="searchTerm" onkeyup="doSearch()" class="form-control">
@@ -191,22 +208,27 @@ and entrevistas.paciente_id = pacientes.id;')
                                 <th scope="col">ID</th>
                                 <th scope="col">Nombres</th>
                                 <th scope="col">Apellidos</th>
-                                <th scope="col">Telefono</th>
+                                <th scope="col">Medico</th>
+                                <th scope="col">Medicamento 1</th>
+                                <th scope="col">Indicaciones</th>
                                 <th scope="col">Fecha y hora</th>
                                 <th scope="col">Detalles</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach($datos as $Lista)
+                            @foreach($datosreceta as $Lista)
                             <tr>
                                 <td>{{$Lista->id}}</td>
                                 <td>{{$Lista->nombres}}</td>
                                 <td>{{$Lista->apellidos}}</td>
-                                <td>{{$Lista->telefono}}</td>
+                                <td>{{$Lista->name}}</td>
+                                <td>{{$Lista->medici_one}}</td>
+                                <td>{{$Lista->indica_one}}</td>
                                 <td>{{$Lista->created_at}}</td>
                                 <td>
-                                    <a href="{{ route('pacientes.show', $Lista->id) }}" class="btn btn-success">Detalles</a>
+                                    <a href="{{ route('recetas.show', $Lista->id) }}" class="btn btn-success">Detalles</a>
+                                    <a href="{{ route('reporteReceta', $Lista->id) }}" class="btn btn-primary">Generar reporte</a>
                                     <br>
                                     <br>
                                 </td>
@@ -221,8 +243,8 @@ and entrevistas.paciente_id = pacientes.id;')
                 </div>
 
                 <div id="menu4" class="container tab-pane fade"><br>
-                    <h3>Historial</h3>
-                    <a href="{{route('pacientes.create')}}" class="btn btn-primary">Nuevo Paciente</a>
+                    <h3>Notas Evolutivas</h3>
+                    <a href="{{route('notasEvolutivas.create')}}" class="btn btn-primary">Nueva Nota</a>
                     <br>
                     <br>
                     <input type="text" id="searchTerm" onkeyup="doSearch()" class="form-control">
@@ -234,22 +256,21 @@ and entrevistas.paciente_id = pacientes.id;')
                                 <th scope="col">ID</th>
                                 <th scope="col">Nombres</th>
                                 <th scope="col">Apellidos</th>
-                                <th scope="col">Telefono</th>
                                 <th scope="col">Fecha y hora</th>
                                 <th scope="col">Detalles</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach($datos as $Lista)
+                            @foreach($datosnota as $Lista)
                             <tr>
                                 <td>{{$Lista->id}}</td>
                                 <td>{{$Lista->nombres}}</td>
                                 <td>{{$Lista->apellidos}}</td>
-                                <td>{{$Lista->telefono}}</td>
                                 <td>{{$Lista->created_at}}</td>
                                 <td>
-                                    <a href="{{ route('pacientes.show', $Lista->id) }}" class="btn btn-success">Detalles</a>
+                                    <a href="{{ route('notasEvolutivas.show', $Lista->id) }}" class="btn btn-success">Detalles</a>
+                                    <a href="{{ route('reporteNotaEvolutiva', $Lista->id) }}" class="btn btn-primary">Generar reporte</a>
                                     <br>
                                     <br>
                                 </td>

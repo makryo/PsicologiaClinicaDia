@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Reporte</title>
+    <title>Reporte de nota evolutiva</title>
 
 
         <style type="text/css">
@@ -17,7 +17,7 @@
             text-decoration: underline;
             }
 
-            body {
+            body {  
             position: relative;
             margin: 0 auto; 
             color: #001028;
@@ -106,8 +106,21 @@
             }
 
             table td {
-            padding: 20px;
+            padding: 80px;
             text-align: left;
+            font-size:x-large;
+            }
+
+            dt {
+            
+            text-align: left;
+            font-size:small;
+            }
+
+            dd {
+            
+            text-align: left;
+            font-size:larger
             }
 
             table td.service,
@@ -221,7 +234,7 @@
       <h1>Clinica Psicologica Dia</h1>
       
       <div id="project">
-        <div><span>TIPO</span>Comprovante de asignacion de cita</div>
+        <div><span>TIPO</span>Reporte de nota evolutiva</div>
         <div><span>NOMBRE</span>Ingrid Cardona</div>
         <div><span>DIRECCIÓN</span>3.ra calle A 6-50 zona 1, Esquipulas ,Chiquimula, Guatemala</div>
         <div><span>EMAIL</span> <a href="mailto:ingriddia@gmail.com">ingriddia@gmail.com</a></div>
@@ -232,33 +245,26 @@
         </div>
       </div>
     </header>
+    <h1>Nota evolutiva del paciente {{$nota->paciente->nombres}}</h1>
     <main>
         <div>
-                    <div class="col-md-12">
-                        <h1>Detalles de la cita</h1>
-                        <div">
-                            <dl>
-                            <div class="row">
-                                <div class="col-6">
-                                    <h2>Nombre del paciente</h2><h3>{{ $cita->paciente->nombres }}</h3>
-                                    <h2>Nombre del medico</h2><h3>{{ $cita->user->name }}</h3>
-                                </div>
-
-                                <div class="col-6">
-                                    <h2>Fecha asignada</h2><h3>{{ $cita->fecha_cita }}</h3>
-                                    <h2>Hora asignada</h2><h3>{{ $cita->hora_cita }}</h3>
-                                    <h2>Fecha y hora de asignacion</h2><h3>{{ $cita->created_at }}</h3>
-                                </div>
-                            </div>
-                            </dl>
-                        </div>
+            <dl>
+                <div class="row">
+                    <div class="col-6">
+                        <dt>Nombre del paciente</dt><dd>{{ $nota->paciente->nombres }}</dd>
+                        <dt>Nombre del medico</dt><dd>{{ $nota->user->name }}</dd>
+                        <dt style="width: 10px;">Observaciones</dt><dd>{{ $nota->observacion}}</dd>
                     </div>
 
-
+                    <div class="col-6">
+                        <dt>Fecha y hora de registro</dt><dd>{{ $nota->created_at }}</dd>
+                    </div>
+                </div>
+            </dl>
         </div>
       <div id="notices">
         <div>NOTA:</div>
-        <div class="notice">EL SIGUIENTE COMPROVANTE SOLO ES PARA USO INFORMATIVO.</div>
+        <div class="notice">EL SIGUIENTE REPORTE SOLO ES PARA USO INFORMATIVO.</div>
       </div>
     </main>
     <footer>

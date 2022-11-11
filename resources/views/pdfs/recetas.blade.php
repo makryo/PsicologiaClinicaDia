@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Reporte</title>
+    <title>Reporte de receta</title>
 
 
         <style type="text/css">
@@ -106,8 +106,21 @@
             }
 
             table td {
-            padding: 20px;
+            padding: 80px;
             text-align: left;
+            font-size:x-large;
+            }
+
+            dt {
+            
+            text-align: left;
+            font-size:small;
+            }
+
+            dd {
+            
+            text-align: left;
+            font-size:larger
             }
 
             table td.service,
@@ -221,7 +234,7 @@
       <h1>Clinica Psicologica Dia</h1>
       
       <div id="project">
-        <div><span>TIPO</span>Comprovante de asignacion de cita</div>
+        <div><span>TIPO</span>Reporte de receta</div>
         <div><span>NOMBRE</span>Ingrid Cardona</div>
         <div><span>DIRECCIÓN</span>3.ra calle A 6-50 zona 1, Esquipulas ,Chiquimula, Guatemala</div>
         <div><span>EMAIL</span> <a href="mailto:ingriddia@gmail.com">ingriddia@gmail.com</a></div>
@@ -232,33 +245,36 @@
         </div>
       </div>
     </header>
+    <h1>Receta del paciente {{$rece->paciente->nombres}}</h1>
     <main>
         <div>
-                    <div class="col-md-12">
-                        <h1>Detalles de la cita</h1>
-                        <div">
-                            <dl>
-                            <div class="row">
-                                <div class="col-6">
-                                    <h2>Nombre del paciente</h2><h3>{{ $cita->paciente->nombres }}</h3>
-                                    <h2>Nombre del medico</h2><h3>{{ $cita->user->name }}</h3>
-                                </div>
+        <dl>
+                    <div class="row">
+                        <div class="col-6">
+                            <dt>Nombre del paciente</dt><dd>{{ $rece->paciente->nombres }}</dd>
+                            <dt>Nombre del medico</dt><dd>{{ $rece->user->name }}</dd>
+                            <dt>1.er Medicamento</dt><dd>{{ $rece->medici_one }}</dd>
+                            <dt>Indicaciones</dt><dd>{{ $rece->indica_one }}</dd>
+                            <dt>2.do Medicamento</dt><dd>{{ $rece->medici_two }}</dd>
+                            <dt>Indicaciones</dt><dd>{{ $rece->indica_two }}</dd>
+                            
+                        </div>
 
-                                <div class="col-6">
-                                    <h2>Fecha asignada</h2><h3>{{ $cita->fecha_cita }}</h3>
-                                    <h2>Hora asignada</h2><h3>{{ $cita->hora_cita }}</h3>
-                                    <h2>Fecha y hora de asignacion</h2><h3>{{ $cita->created_at }}</h3>
-                                </div>
-                            </div>
-                            </dl>
+                        <div class="col-6">
+                            <dt>3.er Medicamento</dt><dd>{{ $rece->medici_three }}</dd>
+                            <dt>Indicaciones</dt><dd>{{ $rece->indica_three }}</dd>
+                            <dt>4.to Medicamento</dt><dd>{{ $rece->medici_four }}</dd>
+                            <dt>Indicaciones</dt><dd>{{ $rece->indica_four }}</dd>                           
+                            <dt>5.to Medicamento</dt><dd>{{ $rece->medici_five }}</dd>
+                            <dt>Indicaciones</dt><dd>{{ $rece->indica_five }}</dd>
+                            <dt>Fecha y hora de registro</dt><dd>{{ $rece->created_at }}</dd>
                         </div>
                     </div>
-
-
+                    </dl>
         </div>
       <div id="notices">
         <div>NOTA:</div>
-        <div class="notice">EL SIGUIENTE COMPROVANTE SOLO ES PARA USO INFORMATIVO.</div>
+        <div class="notice">EL SIGUIENTE REPORTE SOLO ES PARA USO INFORMATIVO.</div>
       </div>
     </main>
     <footer>

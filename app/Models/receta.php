@@ -23,4 +23,12 @@ class receta extends Model
         'medici_five',
         'indica_five'
     ];
+
+    public function User(){
+    	return $this->belongsTo('App\Models\User');
+    }
+
+    public function paciente(){
+    	return $this->belongsTo('App\Models\paciente');
+    }
 }

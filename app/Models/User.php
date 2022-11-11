@@ -53,4 +53,12 @@ class User extends Authenticatable
     public function entrevista(){
     	return $this->hasMany('App\Models\entrevista');
     }
+
+    public function receta(){
+    	return $this->hasMany('App\Models\receta');
+    }
+
+    public function notaEvolutiva(){
+    	return $this->hasMany('App\Models\NotaEvolutiva');
+    }
 }

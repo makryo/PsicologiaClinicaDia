@@ -46,16 +46,8 @@ class RecetaController extends Controller
             [
                 'paciente_id' => 'required|max:15',
                 'user_id' => 'required|max:15',
-                'medici_one' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'indica_one' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'medici_two' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'indica_two' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'medici_three' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'indica_three' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'medici_four' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'indica_four' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'medici_five' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'indica_five' => 'required|max:100|regex:/^[\pL\s\-]+$/u'
+                'medici_one' => 'required|max:100',
+                'indica_one' => 'required|max:100'
 
             ]
         );
@@ -132,16 +124,8 @@ class RecetaController extends Controller
             [
                 'paciente_id' => 'required|max:15',
                 'user_id' => 'required|max:15',
-                'medici_one' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'indica_one' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'medici_two' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'indica_two' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'medici_three' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'indica_three' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'medici_four' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'indica_four' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'medici_five' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'indica_five' => 'required|max:100|regex:/^[\pL\s\-]+$/u'
+                'medici_one' => 'required|max:100',
+                'indica_one' => 'required|max:100'
             ]
         );
 
