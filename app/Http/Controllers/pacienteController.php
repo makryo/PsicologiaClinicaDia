@@ -48,7 +48,7 @@ class pacienteController extends Controller
                 'apellidos' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
                 'telefono' => 'required|max:15',
                 'mensajeria' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'edad' => 'required|max:3'
+                'edad' => 'required'
             ]
         );
 
@@ -68,7 +68,7 @@ class pacienteController extends Controller
             'edad' => $edad
         ]);
 
-        return redirect()->route('pacientes.create')->with('success', 'Data was inserted');
+        return redirect()->route('pacientes.create')->with('success', 'Registro exitoso');
         //return view('paciente.index')->with('success', 'Data was inserted');;
     }
 
@@ -117,7 +117,7 @@ class pacienteController extends Controller
                 'apellidos' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
                 'telefono' => 'required|max:15',
                 'mensajeria' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'edad' => 'required|max:3'
+                'edad' => 'required'
             ]
         );
 
@@ -137,7 +137,7 @@ class pacienteController extends Controller
             'edad' => $edad
         ]);
 
-        return redirect()->route('pacientes.edit', $paci->id)->with('success', 'Data was inserted');
+        return redirect()->route('pacientes.edit', $paci->id)->with('success', 'Actualizacion exitosa');
     }
 
     /**

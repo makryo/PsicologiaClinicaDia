@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\DB;
 
-$datos = DB::select('select id, nombres, apellidos, telefono, created_at from pacientes');
+$datos = DB::select('select id, nombres, apellidos, telefono, TIMESTAMPDIFF(YEAR,edad,CURDATE()) AS edad, created_at from pacientes');
 
 $datosCitas = DB::select('select citas.id, pacientes.nombres, users.name, fecha_cita, hora_cita from citas, pacientes, users 
 where citas.paciente_id = pacientes.id
@@ -68,6 +68,7 @@ and nota_evolutivas.paciente_id = pacientes.id');
                     <a href="{{ route('reportePaciente') }}" class="btn btn-primary">Generar Reporte general</a>
                     <br>
                     <br>
+                    <h3>Buscar</h3>
                     <input type="text" id="searchTerm" onkeyup="doSearch()" class="form-control">
                     <br>
                     <br>
@@ -78,6 +79,7 @@ and nota_evolutivas.paciente_id = pacientes.id');
                                 <th scope="col">Nombres</th>
                                 <th scope="col">Apellidos</th>
                                 <th scope="col">Telefono</th>
+                                <th scope="col">Edad</th>
                                 <th scope="col">Fecha y hora</th>
                                 <th scope="col">Detalles de la entrevista</th>
                             </tr>
@@ -90,6 +92,7 @@ and nota_evolutivas.paciente_id = pacientes.id');
                                 <td>{{$Lista->nombres}}</td>
                                 <td>{{$Lista->apellidos}}</td>
                                 <td>{{$Lista->telefono}}</td>
+                                <td>{{$Lista->edad}}</td>
                                 <td>{{$Lista->created_at}}</td>
                                 <td>
                                     <a href="{{ route('pacientes.show', $Lista->id) }}" class="btn btn-success">Detalles</a>
@@ -111,10 +114,11 @@ and nota_evolutivas.paciente_id = pacientes.id');
                     <a href="{{route('citas.create')}}" class="btn btn-primary">Nueva Cita</a>
                     <br>
                     <br>
-                    <input type="text" id="searchTerm" onkeyup="doSearch()" class="form-control">
+                    <h3>Buscar</h3>
+                    <input type="text" id="searchTerm1" onkeyup="doSearch1()" class="form-control">
                     <br>
                     <br>
-                    <table class="table" id="datos">
+                    <table class="table" id="datos1">
                         <thead>
                             <tr>                     
                                 <th scope="col">ID</th>
@@ -155,10 +159,11 @@ and nota_evolutivas.paciente_id = pacientes.id');
                     <a href="{{route('entrevistas.create')}}" class="btn btn-primary">Nueva entrevista</a>
                     <br>
                     <br>
-                    <input type="text" id="searchTerm" onkeyup="doSearch()" class="form-control">
+                    <h3>Buscar</h3>
+                    <input type="text" id="searchTerm2" onkeyup="doSearch2()" class="form-control">
                     <br>
                     <br>
-                    <table class="table" id="datos">
+                    <table class="table" id="datos2">
                         <thead>
                             <tr>                     
                                 <th scope="col">ID</th>
@@ -199,10 +204,11 @@ and nota_evolutivas.paciente_id = pacientes.id');
                     <a href="{{route('recetas.create')}}" class="btn btn-primary">Nueva Receta</a>
                     <br>
                     <br>
-                    <input type="text" id="searchTerm" onkeyup="doSearch()" class="form-control">
+                    <h3>Buscar</h3>
+                    <input type="text" id="searchTerm3" onkeyup="doSearch3()" class="form-control">
                     <br>
                     <br>
-                    <table class="table" id="datos">
+                    <table class="table" id="datos3">
                         <thead>
                             <tr>                     
                                 <th scope="col">ID</th>
@@ -247,10 +253,12 @@ and nota_evolutivas.paciente_id = pacientes.id');
                     <a href="{{route('notasEvolutivas.create')}}" class="btn btn-primary">Nueva Nota</a>
                     <br>
                     <br>
-                    <input type="text" id="searchTerm" onkeyup="doSearch()" class="form-control">
+                    <h3>Buscar</h3>
+                    <input type="text" id="searchTerm4" onkeyup="doSearch4()" class="form-control">
                     <br>
                     <br>
-                    <table class="table" id="datos">
+                    
+                    <table class="table" id="datos4">
                         <thead>
                             <tr>                     
                                 <th scope="col">ID</th>

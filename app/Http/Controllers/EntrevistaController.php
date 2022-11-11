@@ -86,7 +86,7 @@ class EntrevistaController extends Controller
             'habitos' => $habit
         ]);
 
-        return redirect()->route('entrevistas.create')->with('success', 'Data was inserted');
+        return redirect()->route('entrevistas.create')->with('success', 'Registro exitoso');
     }
 
     /**
@@ -172,7 +172,7 @@ class EntrevistaController extends Controller
             'habitos' => $habit
         ]);
 
-        return redirect()->route('entrevistas.edit', $entre->id)->with('success', 'Data was inserted');
+        return redirect()->route('entrevistas.edit', $entre->id)->with('success', 'Actualizacion exitosa');
     }
 
     /**

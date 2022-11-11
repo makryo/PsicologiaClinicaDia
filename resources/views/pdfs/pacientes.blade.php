@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\DB;
 
-$datos = DB::select('select id, nombres, apellidos, telefono, created_at from pacientes');
+$datos = DB::select('select id, nombres, apellidos, telefono, TIMESTAMPDIFF(YEAR,edad,CURDATE()) AS edad, created_at from pacientes');
 $npacientes = DB::select('select count(*) as total from pacientes');
 ?>
 <!DOCTYPE html>
@@ -249,6 +249,7 @@ $npacientes = DB::select('select count(*) as total from pacientes');
                                 <th scope="col">Nombres</th>
                                 <th scope="col">Apellidos</th>
                                 <th scope="col">Telefono</th>
+                                <th scope="col">Edad</th>
                                 <th scope="col">Fecha y hora</th>
                     
                             </tr>
@@ -261,6 +262,7 @@ $npacientes = DB::select('select count(*) as total from pacientes');
                                 <td>{{$Lista->nombres}}</td>
                                 <td>{{$Lista->apellidos}}</td>
                                 <td>{{$Lista->telefono}}</td>
+                                <td>{{$Lista->edad}}</td>
                                 <td>{{$Lista->created_at}}</td>
                                 
                             </tr>

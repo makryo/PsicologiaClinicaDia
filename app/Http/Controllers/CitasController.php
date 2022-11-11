@@ -64,7 +64,7 @@ class CitasController extends Controller
             'hora_cita' => $horaci
         ]);
 
-        return redirect()->route('citas.create')->with('success', 'Data was inserted');
+        return redirect()->route('citas.create')->with('success', 'Registro exitoso');
     }
 
     /**
@@ -126,7 +126,7 @@ class CitasController extends Controller
             'hora_cita' => $horaci
         ]);
 
-        return redirect()->route('citas.edit', $citasa->id)->with('success', 'Data was inserted');
+        return redirect()->route('citas.edit', $citasa->id)->with('success', 'Actualizacion exitosa');
     }
 
     /**

@@ -6,15 +6,192 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/68LMMpt/png-clipart-sigmund-freud-leben-und-sterben-civilization-and-its-discontents-psychoanalysis-freud-s.png" alt="png-clipart-sigmund-freud-leben-und-sterben-civilization-and-its-discontents-psychoanalysis-freud-s-" />
+    <title>Clinica Psicologica DIA</title>
 
     <!-- Scripts -->
 
+    
     <script language="JavaScript">
         function doSearch(){
             const tableReg = document.getElementById('datos');
             const searchText = document.getElementById('searchTerm').value.toLowerCase();
+            let total = 0;
+            
+            for (let i = 1; i < tableReg.rows.length; i++) {
+           
+                if (tableReg.rows[i].classList.contains("noSearch")) {continue;}
+                    
+                    let found = false;
+                    const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+                   
+                    for (let j = 0; j < cellsOfRow.length && !found; j++) {
+                    const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+            
+                    if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+                        found = true;
+                        total++;
+                    }
+                }
+        
+                if (found) {
+                    tableReg.rows[i].style.display = '';
+                } else {
+                    tableReg.rows[i].style.display = 'none';
+                }
+                }
+                // mostramos las coincidencias
+            const lastTR=tableReg.rows[tableReg.rows.length-1];
+            const td=lastTR.querySelector("td");
+            lastTR.classList.remove("hide", "red");
+            if (searchText == "") {
+                lastTR.classList.add("hide");
+            } else if (total) {
+                td.innerHTML="Se ha encontrado "+total+" coincidencia"+((total>1)?"s":"");
+            } else {
+                lastTR.classList.add("red");
+                td.innerHTML="No se han encontrado coincidencias";
+            }
+        }
+    
+    </script>
+
+    <script language="JavaScript">
+        function doSearch1(){
+            const tableReg = document.getElementById('datos1');
+            const searchText = document.getElementById('searchTerm1').value.toLowerCase();
+            let total = 0;
+            
+            for (let i = 1; i < tableReg.rows.length; i++) {
+           
+                if (tableReg.rows[i].classList.contains("noSearch")) {continue;}
+                    
+                    let found = false;
+                    const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+                   
+                    for (let j = 0; j < cellsOfRow.length && !found; j++) {
+                    const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+            
+                    if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+                        found = true;
+                        total++;
+                    }
+                }
+        
+                if (found) {
+                    tableReg.rows[i].style.display = '';
+                } else {
+                    tableReg.rows[i].style.display = 'none';
+                }
+                }
+                // mostramos las coincidencias
+            const lastTR=tableReg.rows[tableReg.rows.length-1];
+            const td=lastTR.querySelector("td");
+            lastTR.classList.remove("hide", "red");
+            if (searchText == "") {
+                lastTR.classList.add("hide");
+            } else if (total) {
+                td.innerHTML="Se ha encontrado "+total+" coincidencia"+((total>1)?"s":"");
+            } else {
+                lastTR.classList.add("red");
+                td.innerHTML="No se han encontrado coincidencias";
+            }
+        }
+    
+    </script>
+
+    <script language="JavaScript">
+        function doSearch2(){
+            const tableReg = document.getElementById('datos2');
+            const searchText = document.getElementById('searchTerm2').value.toLowerCase();
+            let total = 0;
+            
+            for (let i = 1; i < tableReg.rows.length; i++) {
+           
+                if (tableReg.rows[i].classList.contains("noSearch")) {continue;}
+                    
+                    let found = false;
+                    const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+                   
+                    for (let j = 0; j < cellsOfRow.length && !found; j++) {
+                    const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+            
+                    if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+                        found = true;
+                        total++;
+                    }
+                }
+        
+                if (found) {
+                    tableReg.rows[i].style.display = '';
+                } else {
+                    tableReg.rows[i].style.display = 'none';
+                }
+                }
+                // mostramos las coincidencias
+            const lastTR=tableReg.rows[tableReg.rows.length-1];
+            const td=lastTR.querySelector("td");
+            lastTR.classList.remove("hide", "red");
+            if (searchText == "") {
+                lastTR.classList.add("hide");
+            } else if (total) {
+                td.innerHTML="Se ha encontrado "+total+" coincidencia"+((total>1)?"s":"");
+            } else {
+                lastTR.classList.add("red");
+                td.innerHTML="No se han encontrado coincidencias";
+            }
+        }
+    
+    </script>
+
+    <script language="JavaScript">
+        function doSearch3(){
+            const tableReg = document.getElementById('datos3');
+            const searchText = document.getElementById('searchTerm3').value.toLowerCase();
+            let total = 0;
+            
+            for (let i = 1; i < tableReg.rows.length; i++) {
+           
+                if (tableReg.rows[i].classList.contains("noSearch")) {continue;}
+                    
+                    let found = false;
+                    const cellsOfRow = tableReg.rows[i].getElementsByTagName('td');
+                   
+                    for (let j = 0; j < cellsOfRow.length && !found; j++) {
+                    const compareWith = cellsOfRow[j].innerHTML.toLowerCase();
+            
+                    if (searchText.length == 0 || compareWith.indexOf(searchText) > -1) {
+                        found = true;
+                        total++;
+                    }
+                }
+        
+                if (found) {
+                    tableReg.rows[i].style.display = '';
+                } else {
+                    tableReg.rows[i].style.display = 'none';
+                }
+                }
+                // mostramos las coincidencias
+            const lastTR=tableReg.rows[tableReg.rows.length-1];
+            const td=lastTR.querySelector("td");
+            lastTR.classList.remove("hide", "red");
+            if (searchText == "") {
+                lastTR.classList.add("hide");
+            } else if (total) {
+                td.innerHTML="Se ha encontrado "+total+" coincidencia"+((total>1)?"s":"");
+            } else {
+                lastTR.classList.add("red");
+                td.innerHTML="No se han encontrado coincidencias";
+            }
+        }
+    
+    </script>
+
+    <script language="JavaScript">
+        function doSearch4(){
+            const tableReg = document.getElementById('datos4');
+            const searchText = document.getElementById('searchTerm4').value.toLowerCase();
             let total = 0;
             
             for (let i = 1; i < tableReg.rows.length; i++) {
@@ -79,7 +256,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    Clinica Psicologica DIA
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>

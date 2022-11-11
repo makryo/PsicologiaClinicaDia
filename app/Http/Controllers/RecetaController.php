@@ -79,7 +79,7 @@ class RecetaController extends Controller
             'indica_five' => $indi5
         ]);
 
-        return redirect()->route('recetas.create')->with('success', 'Data was inserted');
+        return redirect()->route('recetas.create')->with('success', 'Registro exitoso');
     }
 
     /**
@@ -157,7 +157,7 @@ class RecetaController extends Controller
             'indica_five' => $indi5
         ]);
 
-        return redirect()->route('recetas.edit', $rece->id)->with('success', 'Data was inserted');
+        return redirect()->route('recetas.edit', $rece->id)->with('success', 'Actualizacion exitosa');
     }
 
     /**

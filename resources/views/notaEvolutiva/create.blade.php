@@ -21,7 +21,7 @@ $paci = paciente::all();
                             {{ session('status') }}
                         </div>
                     @endif
-                    <h1>Nueva Entrevista</h1>
+                    <h1>Nueva Nota Evolutiva</h1>
                     <div class="container">
                     @if(session()->has('success'))
 
@@ -29,7 +29,7 @@ $paci = paciente::all();
                     
                     <div class="alert alert-dismissible alert-success">
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        <strong>Well done!</strong> {{ session()->get('success') }}
+                        <strong>Hecho!</strong> {{ session()->get('success') }}
                     </div>
                     <!--<div class="text-success">{{ session()->get('success') }}</div>-->
 

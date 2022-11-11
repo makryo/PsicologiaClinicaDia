@@ -27,7 +27,7 @@ $usu = User::all();
                     
                     <div class="alert alert-dismissible alert-success">
                         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        <strong>Well done!</strong> {{ session()->get('success') }}
+                        <strong>Hecho!</strong> {{ session()->get('success') }}
                     </div>
                     <!--<div class="text-success">{{ session()->get('success') }}</div>-->
 
@@ -118,9 +118,9 @@ $usu = User::all();
 
 
 
-                                    <label>Edad</label>
+                                    <label>Fecha de nacimiento</label>
                                     <div class="input-group mb-3">
-                                        <input type="number" class="form-control" name="edad" step="0.01" value="{{ $Edita->edad}}">
+                                        <input type="date" class="form-control" name="edad" step="0.01" value="{{ $Edita->edad}}">
                                          
 
                                          <button type="button" class="btn btn-info" data-bs-toggle="popover" title="Informacion" data-bs-content="esto es una ayuda?">?</button>

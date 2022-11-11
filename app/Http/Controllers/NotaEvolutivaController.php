@@ -61,7 +61,7 @@ class NotaEvolutivaController extends Controller
             'observacion' => $obs
         ]);
 
-        return redirect()->route('notasEvolutivas.create')->with('success', 'Data was inserted');
+        return redirect()->route('notasEvolutivas.create')->with('success', 'Registro exitoso');
     }
 
     /**
@@ -120,7 +120,7 @@ class NotaEvolutivaController extends Controller
             'observacion' => $obs
         ]);
 
-        return redirect()->route('notasEvolutivas.edit', $nota->id)->with('success', 'Data was inserted');
+        return redirect()->route('notasEvolutivas.edit', $nota->id)->with('success', 'Actualizacion exitosa');
     }
 
     /**
