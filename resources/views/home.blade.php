@@ -3,6 +3,10 @@ $datos = DB::select('select id, nombres, apellidos, telefono, created_at from pa
 $datosCitas = DB::select('select citas.id, pacientes.nombres, users.name, fecha_cita, hora_cita from citas, pacientes, users 
 where citas.paciente_id = pacientes.id
 and citas.user_id = users.id order by citas.id');
+$datosentre = DB::select('select entrevistas.id, pacientes.nombres, pacientes.apellidos, users.name 
+from pacientes, users, entrevistas
+where entrevistas.user_id = users.id
+and entrevistas.paciente_id = pacientes.id;')
 ?>
 
 @extends('layouts.app')
@@ -59,7 +63,7 @@ and citas.user_id = users.id order by citas.id');
                                 <th scope="col">Apellidos</th>
                                 <th scope="col">Telefono</th>
                                 <th scope="col">Fecha y hora</th>
-                                <th scope="col">Detalles</th>
+                                <th scope="col">Detalles de la entrevista</th>
                             </tr>
                         </thead>
 
@@ -132,7 +136,7 @@ and citas.user_id = users.id order by citas.id');
 
                 <div id="menu2" class="container tab-pane fade"><br>
                     <h3>Entrevistas</h3>
-                    <a href="{{route('pacientes.create')}}" class="btn btn-primary">Nuevo Paciente</a>
+                    <a href="{{route('entrevistas.create')}}" class="btn btn-primary">Nueva entrevista</a>
                     <br>
                     <br>
                     <input type="text" id="searchTerm" onkeyup="doSearch()" class="form-control">
@@ -144,22 +148,20 @@ and citas.user_id = users.id order by citas.id');
                                 <th scope="col">ID</th>
                                 <th scope="col">Nombres</th>
                                 <th scope="col">Apellidos</th>
-                                <th scope="col">Telefono</th>
-                                <th scope="col">Fecha y hora</th>
+                                <th scope="col">Medico entrevistador</th>
                                 <th scope="col">Detalles</th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach($datos as $Lista)
+                            @foreach($datosentre as $Lista)
                             <tr>
                                 <td>{{$Lista->id}}</td>
                                 <td>{{$Lista->nombres}}</td>
                                 <td>{{$Lista->apellidos}}</td>
-                                <td>{{$Lista->telefono}}</td>
-                                <td>{{$Lista->created_at}}</td>
+                                <td>{{$Lista->name}}</td>
                                 <td>
-                                    <a href="{{ route('pacientes.show', $Lista->id) }}" class="btn btn-success">Detalles</a>
+                                    <a href="{{ route('entrevistas.show', $Lista->id) }}" class="btn btn-success">Detalles</a>
                                     <br>
                                     <br>
                                 </td>

@@ -46,16 +46,16 @@ class EntrevistaController extends Controller
             [
                 'paciente_id' => 'required|max:15',
                 'user_id' => 'required|max:15',
-                'tiempo_libre' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'hace_solo' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'no_gusta' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'deportes' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'programas' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'felicidad' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'entristece' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'enojo' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'aspec_vida' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'habitos' => 'required|max:100|regex:/^[\pL\s\-]+$/u'
+                'tiempo_libre' => 'required|max:100',
+                'hace_solo' => 'required|max:100',
+                'no_gusta' => 'required|max:100',
+                'deportes' => 'required|max:100',
+                'programas' => 'required|max:100',
+                'felicidad' => 'required|max:100',
+                'entristece' => 'required|max:100',
+                'enojo' => 'required|max:100',
+                'aspec_vida' => 'required|max:100',
+                'habitos' => 'required|max:100'
             ]
         );
         $paci = $request->input('paciente_id');
@@ -131,16 +131,16 @@ class EntrevistaController extends Controller
             [
                 'paciente_id' => 'required|max:15',
                 'user_id' => 'required|max:15',
-                'tiempo_libre' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'hace_solo' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'no_gusta' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'deportes' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'programas' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'felicidad' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'entristece' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'enojo' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'aspec_vida' => 'required|max:100|regex:/^[\pL\s\-]+$/u',
-                'habitos' => 'required|max:100|regex:/^[\pL\s\-]+$/u'
+                'tiempo_libre' => 'required|max:100',
+                'hace_solo' => 'required|max:100',
+                'no_gusta' => 'required|max:100',
+                'deportes' => 'required|max:100',
+                'programas' => 'required|max:100',
+                'felicidad' => 'required|max:100',
+                'entristece' => 'required|max:100',
+                'enojo' => 'required|max:100',
+                'aspec_vida' => 'required|max:100',
+                'habitos' => 'required|max:100'
             ]
         );
 

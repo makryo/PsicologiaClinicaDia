@@ -23,4 +23,11 @@ class entrevista extends Model
         'aspec_vida',
         'habitos'
     ];
+    public function User(){
+    	return $this->belongsTo('App\Models\User');
+    }
+
+    public function paciente(){
+    	return $this->belongsTo('App\Models\paciente');
+    }
 }
